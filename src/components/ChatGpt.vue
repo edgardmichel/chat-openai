@@ -170,10 +170,11 @@ export default {
     },
     async sendChatGpt() {
       const openai = new OpenAI({
-        apiKey: 'sk-proj-oFI3eUy0h76D32tLSfi9T3BlbkFJkffMClcRUAM6iX0kQ6C3',
+        apiKey: '',
         dangerouslyAllowBrowser: true
       });
 
+      //
       const completion = await openai.chat.completions.create({
         messages: this.messagesTemp,
         model: this.modelSelecionado
