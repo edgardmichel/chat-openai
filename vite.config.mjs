@@ -6,6 +6,8 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import wasm from "vite-plugin-wasm"
+import topLevelAwait from "vite-plugin-top-level-await"
 
 // Utilities
 import { defineConfig } from 'vite'
@@ -45,6 +47,8 @@ export default defineConfig({
       },
       vueTemplate: true,
     }),
+    wasm(),
+    topLevelAwait()
   ],
   define: { 'process.env': {} },
   resolve: {

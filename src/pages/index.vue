@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld />
+  <ChatGpt />
 </template>
 
 <script setup>
