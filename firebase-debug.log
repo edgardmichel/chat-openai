@@ -1,0 +1,25 @@
+[debug] [2024-06-19T20:37:26.590Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T20:37:26.594Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-06-19T20:37:26.595Z] CLI Version:   13.11.2
+[debug] [2024-06-19T20:37:26.595Z] Platform:      win32
+[debug] [2024-06-19T20:37:26.595Z] Node Version:  v20.14.0
+[debug] [2024-06-19T20:37:26.595Z] Time:          Wed Jun 19 2024 17:37:26 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-06-19T20:37:26.596Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T20:37:26.729Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T20:37:26.730Z] > authorizing via signed-in user (google@matchjob.com.br)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Edgard A Michel\Documents\Projetos\chat-gpt\chat-openai
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
