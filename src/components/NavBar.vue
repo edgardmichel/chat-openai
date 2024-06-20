@@ -3,7 +3,7 @@
     <v-app-bar-title>OpenAI Frontend</v-app-bar-title>
 
 
-    <v-btn @click="goToChat">ChatGPT</v-btn>
+    <v-btn @click="goToChat" color="indigo-darken-3" variant="flat">ChatGPT</v-btn>
     <v-spacer></v-spacer>
     <v-menu>
     <template v-slot:activator="{ props }">

@@ -15,7 +15,7 @@
           </v-alert>
         </v-col>
       </v-row>
-      <v-card title="Texto" :subtitle="`Tokens Utilizados: (${totalTokens})`">
+      <v-card title="Chat" :subtitle="`Tokens Utilizados: (${totalTokens})`">
         <v-card-text>
           <template v-for="(text, index) in showText" :key="index">
           <v-row class="ma-3" :justify="text.origin === 'self' ? 'end' : 'start'">
@@ -48,7 +48,7 @@
           </template>
         </v-card-text>
       </v-card>
-      <v-row>
+      <v-row class="pt-10">
         <v-col cols="12">
           <v-textarea
             label="Texto"
@@ -91,7 +91,7 @@
           <v-btn @click="resetForm">Reiniciar</v-btn>
         </v-col>
       </v-row>
-      <v-row>
+      <!-- <v-row>
         <v-col>
           <router-link to="/cadastro">Cadastro</router-link><br>
           <router-link to="/login">Login</router-link>
@@ -101,9 +101,9 @@
         <v-col>
           {{propApiKey}}
         </v-col>
-      </v-row>
+      </v-row> -->
       <v-row>
-        <v-col cols="6">
+        <!-- <v-col cols="6">
           userText -> {{ userText }}<br>
           modelSelecionado -> {{ modelSelecionado }}<br>
           systemText -> {{ systemText }}<br>
@@ -112,7 +112,7 @@
         </v-col>
         <v-col cols="6">
           messagesTemp -> <pre>{{ messagesTemp }}</pre>
-        </v-col>
+        </v-col> -->
         <v-col cols="12">
           returnOpenAi
           <pre>{{ returnOpenAi }}</pre>

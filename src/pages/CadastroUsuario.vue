@@ -1,61 +1,56 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive
-      class="align-centerfill-height mx-auto"
-      max-width="900"
-    >
-      <v-card class="mx-auto pa-12 pb-8" max-width="448" rounded="lg" elevation="8" title="Novo Usuário" subtitle="Formulário de cadastro">
-        <v-row>
-          <v-col>
-            <v-text-field
-              label="E-mail"
-              type="email"
-              hint="Digite o seu e-mail"
-              :rules="[rules.required, rules.email]"
-              v-model="email"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-text-field
-              label="Senha"
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="[rules.required, rules.min]"
-              :type="show1 ? 'text' : 'password'"
-              counter
-              @click:append="show1 = !show1"
-              hint="At least 8 characters"
-              v-model="password"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row v-if="error">
-          <v-col>
-            <v-alert
-              type="warning"
-              title="Erro"
-            >
-            {{ error }}
-            </v-alert>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-btn
-              class="mb-8"
-              color="blue"
-              size="large"
-              variant="tonal"
-              block
-              @click="handleSubmit"
-            >
-              Cadastrar
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-responsive>
+    <v-card class="mx-auto pa-10" width="500" rounded="lg" elevation="8" title="Novo Usuário" subtitle="Formulário de cadastro">
+      <v-row>
+        <v-col>
+          <v-text-field
+            label="E-mail"
+            type="email"
+            hint="Digite o seu e-mail"
+            :rules="[rules.required, rules.email]"
+            v-model="email"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-text-field
+            label="Senha"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'"
+            counter
+            @click:append="show1 = !show1"
+            hint="At least 8 characters"
+            v-model="password"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row v-if="error">
+        <v-col>
+          <v-alert
+            type="warning"
+            title="Erro"
+          >
+          {{ error }}
+          </v-alert>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-btn
+            class="mb-8"
+            color="blue"
+            size="large"
+            variant="tonal"
+            block
+            @click="handleSubmit"
+          >
+            Cadastrar
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 
