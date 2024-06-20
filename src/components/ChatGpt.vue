@@ -4,17 +4,17 @@
       class="align-centerfill-height mx-auto"
       max-width="900"
     >
-    <v-row v-if="statusApi">
-      <v-col>
-        <v-alert
-          type="warning"
-          title="Ops!"
-        >
-        Você precisa configurar a API Key do OpenAI!<br>
-        <router-link to="/configuracoes">Clique aqui</router-link> para configurar.
-        </v-alert>
-      </v-col>
-    </v-row>
+      <v-row v-if="!propApiKey">
+        <v-col>
+          <v-alert
+            type="warning"
+            title="Ops!"
+          >
+          Você precisa configurar a API Key do OpenAI!<br>
+          <router-link to="/configuracoes">Clique aqui</router-link> para configurar.
+          </v-alert>
+        </v-col>
+      </v-row>
       <v-card title="Texto" :subtitle="`Tokens Utilizados: (${totalTokens})`">
         <v-card-text>
           <template v-for="(text, index) in showText" :key="index">
@@ -99,7 +99,7 @@
       </v-row>
       <v-row>
         <v-col>
-          {{documents}}
+          {{propApiKey}}
         </v-col>
       </v-row>
       <v-row>
@@ -126,7 +126,7 @@
 import OpenAI from 'openai'
 import getUser from '@/composables/getUser'
 import getCollection from '@/composables/getCollection';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 export default {
   setup() {
@@ -140,6 +140,9 @@ export default {
 
 
     return { documents, statusApi }
+  },
+  props: {
+    propApiKey: String
   },
   data: () => ({
     models: [
@@ -202,7 +205,7 @@ export default {
     },
     async sendChatGpt() {
       const openai = new OpenAI({
-        apiKey: '',
+        apiKey: this.propApiKey,
         dangerouslyAllowBrowser: true
       });
 

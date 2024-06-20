@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <ChatGpt />
+  <IndexComp />
 </template>
 
 <script setup>
