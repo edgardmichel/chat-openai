@@ -4,7 +4,7 @@
       class="align-centerfill-height mx-auto"
       max-width="900"
     >
-      <v-card class="mx-auto pa-12 pb-8" max-width="448" rounded="lg" elevation="8" title="Novo Usuário" subtitle="Formulário de cadastro">
+      <v-card class="mx-auto pa-12 pb-8" max-width="448" rounded="lg" elevation="8" title="Login de Usuário" subtitle="Forneça os seus dados">
         <v-row>
           <v-col>
             <v-text-field
@@ -33,10 +33,10 @@
         <v-row v-if="error">
           <v-col>
             <v-alert
-              type="warning"
+              type="error"
               title="Erro"
+              :text="error"
             >
-            {{ error }}
             </v-alert>
           </v-col>
         </v-row>
@@ -48,9 +48,9 @@
               size="large"
               variant="tonal"
               block
-              @click="handleSubmit"
+              @click="handleLogin"
             >
-              Cadastrar
+              Entrar
             </v-btn>
           </v-col>
         </v-row>
@@ -59,29 +59,28 @@
   </v-container>
 </template>
 
-
 <script>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
-import useSignup from '@/composables/useSignup';
+import useLogin from '@/composables/useLogin'
 
 export default {
   setup() {
     const email = ref('')
     const password = ref('')
 
-    const { signup, error } = useSignup()
+    const { login, error } = useLogin()
     const router = useRouter()
 
-    const handleSubmit = async () => {
-      await signup(email.value, password.value)
+    const handleLogin = async () => {
+      await login(email.value, password.value)
 
       if(!error.value) {
         router.push('/')
       }
     }
 
-    return { email, password, handleSubmit, error }
+    return { email, password, handleLogin, error }
   },
   data() {
     return {
@@ -96,11 +95,6 @@ export default {
       }
     }
   },
-  methods: {
-    required (v) {
-      return !!v || 'Field is required'
-    },
-  }
 }
 </script>
 

@@ -4,6 +4,17 @@
       class="align-centerfill-height mx-auto"
       max-width="900"
     >
+    <v-row v-if="statusApi">
+      <v-col>
+        <v-alert
+          type="warning"
+          title="Ops!"
+        >
+        Você precisa configurar a API Key do OpenAI!<br>
+        <router-link to="/configuracoes">Clique aqui</router-link> para configurar.
+        </v-alert>
+      </v-col>
+    </v-row>
       <v-card title="Texto" :subtitle="`Tokens Utilizados: (${totalTokens})`">
         <v-card-text>
           <template v-for="(text, index) in showText" :key="index">
@@ -82,7 +93,13 @@
       </v-row>
       <v-row>
         <v-col>
-          <router-link to="/CadatroUsuario">Cadastro</router-link>
+          <router-link to="/cadastro">Cadastro</router-link><br>
+          <router-link to="/login">Login</router-link>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          {{documents}}
         </v-col>
       </v-row>
       <v-row>
@@ -107,8 +124,23 @@
 
 <script>
 import OpenAI from 'openai'
+import getUser from '@/composables/getUser'
+import getCollection from '@/composables/getCollection';
+import { ref, watch } from 'vue';
 
 export default {
+  setup() {
+    const { user } = getUser()
+    const { documents } = getCollection(
+      'usuarios',
+      ['userID', '==', user.value.uid]
+    )
+    const statusApi = ref(false)
+
+
+
+    return { documents, statusApi }
+  },
   data: () => ({
     models: [
       { title: 'gpt-4o', value: 'gpt-4o' },
